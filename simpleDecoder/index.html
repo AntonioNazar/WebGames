@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<!-- Config para português padrão -->
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título -->
+    <title>Persona Decoder</title>
+
+    <!-- ResetCSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS de estilização -->
+    <link rel="stylesheet" href="src/assets/css/style.css">
+
+    <!-- Font Libre Baskerville -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=New+Amsterdam&display=swap" rel="stylesheet">
+
+    <!-- Font Inter Tight-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=New+Amsterdam&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+     <link rel="shortcut icon" href="src/assets/images/persona_fav_icon.png">
+
+</head>
+<body>
+    <header>
+        <div id="title">
+            <img src="src/assets/images/persona.png" alt="persona-mask">
+            <h1> Persona Decoder </h1>
+        </div>
+        <div id="inputs"> 
+            <input id="som" type="image" onclick= "mute_unmute()" src="src/assets/images/audio.png" alt="mute/unmute">
+            <input id="video" type="image" onclick= "pause_continue()" src="src/assets/images/video.png" alt="pause/continue">
+        </div>
+    </header>
+    <!-- background video sem som para evitar travar -->
+    <video id="bg-video" class="bg-video" autoplay loop muted>
+        <source src="src/assets/videos/Persona 5 - Opening Cinematic.mp4" type="video/mp4">
+    </video>
+    <!-- som com qualidade reduzida para melhorar a velocidade da pagina -->
+    <audio id="persona_song" prelaod autoplay loop> 
+        <source src="src/assets/audio/Persona 5 - Opening Cinematic.mp3" type="audio/mp3" />
+     </audio>
+     
+        <section class="content">
+            
+            <section class="user-text">
+
+                <div class="div-decoder">
+                    <textarea id="decoder" class="decoder" name="input" placeholder="Digite seu texto" maxlength="250"></textarea>
+                </div>
+        
+                <div class="botoes">
+                    <div id="criptografar">
+                        <input class="botao" type="button" value="criptografar" onclick="encrypt()">
+                    </div>
+                    <div  id="descriptografar">
+                        <input class="botao" type="button" value="descriptografar" onclick="decrypt()">
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="user-return">
+                <img id="joker" src="src/assets/images/joker.png" alt="joker">
+                
+                    <span id="chat-arrow"></span>
+
+                    <div id="return">
+                        <p id="answer"></p>
+                        <input id="copy" type="image" onclick= "copy()" src="src/assets/images/copy.png" alt="copy">
+                    </div>
+
+            </section>
+        </section>
+    </section>
+    <footer>
+        <h1>Desenvolvedor: Antonio Nazar</h1>
+        <a href="https://github.com/AntonioNazar">GITHUB</a>
+    </footer>
+    <script src="src/assets/js/engine.js" defer></script>
+</body>
+</html>
